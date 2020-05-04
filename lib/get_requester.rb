@@ -1,7 +1,7 @@
 # Write your code here
-require 'net/http'
-require 'open-uri'
-require 'json'
+require 'net/http' #Gets back an object closer to the structure of the actual HTTP
+require 'open-uri' #required to get n HTTP request
+require 'json' #COnverts response.body JSON into a Ruby array/hash
 class GetRequester
   attr_accessor :url
 
@@ -9,7 +9,7 @@ class GetRequester
     @url = url
   end
   def get_response_body
-    uri = URI.parse(url)
+    uri = URI.parse(url) #extracts data from response object
     response = Net::HTTP.get_response(uri)
     response.body
   end
